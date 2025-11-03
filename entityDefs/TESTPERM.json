@@ -1803,6 +1803,22 @@
             "default": "NA",
             "maxLength": 100,
             "isCustom": true
+        },
+        "parentid": {
+            "type": "text",
+            "isCustom": true
+        },
+        "attyfirm": {
+            "type": "text",
+            "isCustom": true
+        },
+        "coemailpermadsloginurl": {
+            "type": "text",
+            "isCustom": true
+        },
+        "jobaddress_country": {
+            "type": "text",
+            "isCustom": true
         }
     },
     "links": {
