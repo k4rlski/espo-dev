@@ -2,6 +2,9 @@
     "fields": {
         "name": {
             "type": "varchar",
+            "maxLength": 100,
+            "dbType": "varchar(100)",
+            "len": 100,
             "required": true,
             "trim": true,
             "pattern": "$noBadCharacters"
@@ -380,7 +383,9 @@
         },
         "empsoccodes": {
             "type": "varchar",
-            "maxLength": 60,
+            "maxLength": 30,
+            "dbType": "varchar(30)",
+            "len": 30,
             "options": [],
             "isCustom": true
         },
@@ -563,7 +568,9 @@
         },
         "altforeignlanguage": {
             "type": "varchar",
-            "maxLength": 60,
+            "maxLength": 40,
+            "dbType": "varchar(40)",
+            "len": 40,
             "options": [],
             "isCustom": true
         },
@@ -674,7 +681,9 @@
         },
         "onettitlecombo": {
             "type": "varchar",
-            "maxLength": 60,
+            "maxLength": 50,
+            "dbType": "varchar(50)",
+            "len": 50,
             "options": [],
             "isCustom": true
         },
@@ -854,7 +863,9 @@
                 "No": null,
                 "NA": null
             },
-            "maxLength": 100,
+            "maxLength": 10,
+            "dbType": "varchar(10)",
+            "len": 10,
             "isCustom": true
         },
         "visatype": {
@@ -868,7 +879,9 @@
                 "NA": null
             },
             "default": "NA",
-            "maxLength": 100,
+            "maxLength": 50,
+            "dbType": "varchar(50)",
+            "len": 50,
             "isCustom": true
         }
     },
