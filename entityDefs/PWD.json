@@ -3,7 +3,6 @@
         "name": {
             "type": "varchar",
             "maxLength": 100,
-            "dbType": "varchar(100)",
             "len": 100,
             "required": true,
             "trim": true,
@@ -384,7 +383,6 @@
         "empsoccodes": {
             "type": "varchar",
             "maxLength": 30,
-            "dbType": "varchar(30)",
             "len": 30,
             "options": [],
             "isCustom": true
@@ -569,7 +567,6 @@
         "altforeignlanguage": {
             "type": "varchar",
             "maxLength": 40,
-            "dbType": "varchar(40)",
             "len": 40,
             "options": [],
             "isCustom": true
@@ -682,7 +679,6 @@
         "onettitlecombo": {
             "type": "varchar",
             "maxLength": 50,
-            "dbType": "varchar(50)",
             "len": 50,
             "options": [],
             "isCustom": true
@@ -864,7 +860,6 @@
                 "NA": null
             },
             "maxLength": 10,
-            "dbType": "varchar(10)",
             "len": 10,
             "isCustom": true
         },
@@ -880,7 +875,6 @@
             },
             "default": "NA",
             "maxLength": 50,
-            "dbType": "varchar(50)",
             "len": 50,
             "isCustom": true
         }
