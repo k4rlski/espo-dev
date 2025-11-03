@@ -1508,13 +1508,7 @@
         "swa": {
             "type": "link"
         },
-        "document": {
-            "type": "link"
-        },
         "news": {
-            "type": "link"
-        },
-        "contact": {
             "type": "link"
         },
         "account": {
@@ -1786,9 +1780,6 @@
             "type": "url",
             "isCustom": true
         },
-        "transactions": {
-            "type": "link"
-        },
         "trx": {
             "type": "linkMultiple",
             "layoutDetailDisabled": true,
@@ -1822,9 +1813,6 @@
             "maxLength": 80,
             "options": [],
             "isCustom": true
-        },
-        "communications": {
-            "type": "link"
         },
         "statswaemail": {
             "type": "enum",
@@ -1900,24 +1888,10 @@
             "audited": false,
             "isCustom": true
         },
-        "document": {
-            "type": "belongsTo",
-            "foreign": "perm",
-            "entity": "Document",
-            "audited": false,
-            "isCustom": true
-        },
         "news": {
             "type": "belongsTo",
             "foreign": "perm",
             "entity": "News",
-            "audited": false,
-            "isCustom": true
-        },
-        "contact": {
-            "type": "belongsTo",
-            "foreign": "perm",
-            "entity": "Contact",
             "audited": false,
             "isCustom": true
         },
@@ -1928,24 +1902,10 @@
             "audited": false,
             "isCustom": true
         },
-        "transactions": {
-            "type": "belongsTo",
-            "foreign": "tESTPERMs",
-            "entity": "CTransactions",
-            "audited": false,
-            "isCustom": true
-        },
         "trx": {
             "type": "hasMany",
             "foreign": "perm",
             "entity": "CTransactions",
-            "audited": false,
-            "isCustom": true
-        },
-        "communications": {
-            "type": "belongsTo",
-            "foreign": "perm",
-            "entity": "CCommunications",
             "audited": false,
             "isCustom": true
         }
