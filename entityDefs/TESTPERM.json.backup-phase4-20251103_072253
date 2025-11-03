@@ -131,12 +131,14 @@
             "isCustom": true
         },
         "yournamefirst": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 150,
             "options": [],
             "isCustom": true
         },
         "yournamelast": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 150,
             "options": [],
             "isCustom": true
         },
@@ -168,7 +170,8 @@
             "isCustom": true
         },
         "attyassistant": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -297,7 +300,8 @@
             "isCustom": true
         },
         "adnumbernews": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -353,17 +357,26 @@
             "isCustom": true
         },
         "attyname": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 120,
+            "options": [],
+            "isCustom": true
+        },
+        "attyfirm": {
+            "type": "varchar",
+            "maxLength": 255,
             "options": [],
             "isCustom": true
         },
         "contactname": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 120,
             "options": [],
             "isCustom": true
         },
         "contactemail": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -1108,12 +1121,14 @@
             "isCustom": true
         },
         "coaddress": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
         "cocity": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -1130,7 +1145,8 @@
             "isCustom": true
         },
         "cocounty": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -1147,17 +1163,26 @@
             "isCustom": true
         },
         "coemailcontactstandard": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
         "coemailpermads": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
         "coemailpermadspass": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
+            "options": [],
+            "isCustom": true
+        },
+        "coemailpermadsloginurl": {
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -1196,12 +1221,14 @@
             "isCustom": true
         },
         "cofein": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
         "conaics": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -1235,7 +1262,8 @@
             "isCustom": true
         },
         "jobnaics": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 150,
             "options": [],
             "isCustom": true
         },
@@ -1246,17 +1274,20 @@
             "isCustom": true
         },
         "jobhours": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
         "jobsiteaddress": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
         "jobsitecity": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -1267,17 +1298,20 @@
             "isCustom": true
         },
         "jobsitezip": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
         "jobexperience": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 255,
             "options": [],
             "isCustom": true
         },
         "jobeducation": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 255,
             "options": [],
             "isCustom": true
         },
@@ -1486,6 +1520,12 @@
             "type": "link"
         },
         "domainname": {
+            "type": "varchar",
+            "maxLength": 255,
+            "options": [],
+            "isCustom": true
+        },
+        "parentid": {
             "type": "varchar",
             "maxLength": 255,
             "options": [],
@@ -1724,7 +1764,8 @@
             "isCustom": true
         },
         "dolbkupcodes": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -1756,12 +1797,14 @@
             "isCustom": true
         },
         "trxstring": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
         "stripeinvoiceid": {
-            "type": "text",
+            "type": "varchar",
+            "maxLength": 100,
             "options": [],
             "isCustom": true
         },
@@ -1777,7 +1820,7 @@
             "isCustom": true
         },
         "statswaemail": {
-            "type": "text",
+            "type": "enum",
             "options": [
                 "Not Drafted",
                 "Draft Email",
@@ -1800,22 +1843,6 @@
             },
             "default": "NA",
             "maxLength": 100,
-            "isCustom": true
-        },
-        "parentid": {
-            "type": "text",
-            "isCustom": true
-        },
-        "attyfirm": {
-            "type": "text",
-            "isCustom": true
-        },
-        "coemailpermadsloginurl": {
-            "type": "text",
-            "isCustom": true
-        },
-        "jobaddress_country": {
-            "type": "text",
             "isCustom": true
         }
     },
