@@ -362,12 +362,6 @@
             "options": [],
             "isCustom": true
         },
-        "attyfirm": {
-            "type": "varchar",
-            "maxLength": 255,
-            "options": [],
-            "isCustom": true
-        },
         "contactname": {
             "type": "varchar",
             "maxLength": 120,
@@ -1180,12 +1174,6 @@
             "options": [],
             "isCustom": true
         },
-        "coemailpermadsloginurl": {
-            "type": "varchar",
-            "maxLength": 100,
-            "options": [],
-            "isCustom": true
-        },
         "coswauinumber": {
             "type": "varchar",
             "maxLength": 40,
@@ -1520,12 +1508,6 @@
             "type": "link"
         },
         "domainname": {
-            "type": "varchar",
-            "maxLength": 255,
-            "options": [],
-            "isCustom": true
-        },
-        "parentid": {
             "type": "varchar",
             "maxLength": 255,
             "options": [],
