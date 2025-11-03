@@ -849,33 +849,33 @@
         "coveredbyacwia": {
             "type": "enum",
             "options": [
+                "",
                 "Yes",
                 "No",
                 "NA"
             ],
             "default": "NA",
             "style": {
+                "": null,
                 "Yes": null,
                 "No": null,
                 "NA": null
             },
-            "maxLength": 10,
-            "len": 10,
             "isCustom": true
         },
         "visatype": {
             "type": "enum",
             "options": [
+                "",
                 "PERM",
                 "NA"
             ],
             "style": {
+                "": null,
                 "PERM": null,
                 "NA": null
             },
             "default": "NA",
-            "maxLength": 50,
-            "len": 50,
             "isCustom": true
         }
     },
