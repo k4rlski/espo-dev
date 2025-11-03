@@ -2,6 +2,7 @@
     "fields": {
         "name": {
             "type": "varchar",
+            "maxLength": 150,
             "required": true,
             "trim": true,
             "pattern": "$noBadCharacters",
@@ -164,7 +165,7 @@
         },
         "attycasenumber": {
             "type": "varchar",
-            "maxLength": 255,
+            "maxLength": 30,
             "options": [],
             "isCustom": true
         },
@@ -274,6 +275,7 @@
         },
         "statacctgcreditnews": {
             "type": "enum",
+            "maxLength": 35,
             "options": [
                 "NA",
                 "on credit",
@@ -305,12 +307,13 @@
         },
         "adnumberlocal": {
             "type": "varchar",
-            "maxLength": 150,
+            "maxLength": 30,
             "options": [],
             "isCustom": true
         },
         "quotereport": {
             "type": "enum",
+            "maxLength": 20,
             "options": [
                 "---",
                 "yes",
@@ -331,7 +334,7 @@
         },
         "urlweb": {
             "type": "varchar",
-            "maxLength": 255,
+            "maxLength": 150,
             "options": [],
             "isCustom": true
         },
@@ -1095,7 +1098,7 @@
         },
         "dboxemailthreadnews": {
             "type": "varchar",
-            "maxLength": 255,
+            "maxLength": 50,
             "options": [],
             "isCustom": true
         },
@@ -1149,7 +1152,7 @@
         },
         "comsa": {
             "type": "varchar",
-            "maxLength": 150,
+            "maxLength": 30,
             "options": [],
             "isCustom": true
         },
@@ -1249,7 +1252,7 @@
         },
         "codolpin": {
             "type": "varchar",
-            "maxLength": 150,
+            "maxLength": 30,
             "options": [],
             "isCustom": true
         },
@@ -1363,7 +1366,7 @@
         },
         "autoprintewp": {
             "type": "varchar",
-            "maxLength": 255,
+            "maxLength": 155,
             "options": [],
             "isCustom": true
         },
@@ -1454,6 +1457,7 @@
         },
         "processor": {
             "type": "enum",
+            "maxLength": 15,
             "options": [
                 "NA",
                 "ACH",
@@ -1475,6 +1479,7 @@
         },
         "entity": {
             "type": "enum",
+            "maxLength": 15,
             "options": [
                 "PA",
                 "NA",
@@ -1608,13 +1613,13 @@
         },
         "urljsbp": {
             "type": "varchar",
-            "maxLength": 255,
+            "maxLength": 130,
             "options": [],
             "isCustom": true
         },
         "actionnotes": {
             "type": "varchar",
-            "maxLength": 255,
+            "maxLength": 40,
             "options": [],
             "isCustom": true
         },
@@ -1730,7 +1735,7 @@
         },
         "swasubacctuser": {
             "type": "varchar",
-            "maxLength": 255,
+            "maxLength": 45,
             "options": [],
             "isCustom": true
         },
