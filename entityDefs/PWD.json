@@ -55,6 +55,25 @@
             "options": [],
             "isCustom": true
         },
+        "statcase": {
+            "type": "enum",
+            "options": [
+                "",
+                "Pending",
+                "Certified",
+                "Denied",
+                "Withdrawn"
+            ],
+            "default": "",
+            "style": {
+                "": null,
+                "Pending": "warning",
+                "Certified": "success",
+                "Denied": "danger",
+                "Withdrawn": "default"
+            },
+            "isCustom": true
+        },
         "datereceived": {
             "notNull": false,
             "type": "date",
@@ -78,6 +97,84 @@
         "datewithdrawal": {
             "notNull": false,
             "type": "date",
+            "isCustom": true
+        },
+        "visaclass": {
+            "type": "enum",
+            "options": ["", "H-1B", "H-1B1", "E-3", "PERM", "Other"],
+            "default": "",
+            "isCustom": true
+        },
+        "typeofrep": {
+            "type": "enum",
+            "options": ["", "Attorney", "Agent", "Self", "None"],
+            "default": "",
+            "isCustom": true
+        },
+        "statacwiachanged": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
+            "isCustom": true
+        },
+        "profsportsleague": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
+            "isCustom": true
+        },
+        "wagesourcerequested": {
+            "type": "enum",
+            "options": ["", "OES", "CBA", "Other", "Employer Survey"],
+            "default": "",
+            "isCustom": true
+        },
+        "supervise_other_emp": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
+            "isCustom": true
+        },
+        "requirededucationlevel": {
+            "type": "enum",
+            "options": ["", "None", "High School", "Associate", "Bachelor", "Master", "Doctorate", "Professional"],
+            "default": "",
+            "isCustom": true
+        },
+        "secondeducation": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
+            "isCustom": true
+        },
+        "requiredtraining": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
+            "isCustom": true
+        },
+        "requiredexperience": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
+            "isCustom": true
+        },
+        "alttraining": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
+            "isCustom": true
+        },
+        "altexperience": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
+            "isCustom": true
+        },
+        "travelrequired": {
+            "type": "enum",
+            "options": ["", "Yes", "No"],
+            "default": "",
             "isCustom": true
         },
         "employerpoclastname": {
