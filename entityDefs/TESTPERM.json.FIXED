@@ -139,6 +139,10 @@
       "options": [],
       "isCustom": true
     },
+    "jobaddress": {
+      "type": "address",
+      "isCustom": true
+    },
     "salary": {
       "type": "varchar",
       "maxLength": 20,
@@ -1782,22 +1786,6 @@
       "isCustom": true
     },
     "jobaddress_country": {
-      "type": "text",
-      "isCustom": true
-    },
-    "jobaddress_street": {
-      "type": "text",
-      "isCustom": true
-    },
-    "jobaddress_city": {
-      "type": "text",
-      "isCustom": true
-    },
-    "jobaddress_state": {
-      "type": "text",
-      "isCustom": true
-    },
-    "jobaddress_postal_code": {
       "type": "text",
       "isCustom": true
     }
