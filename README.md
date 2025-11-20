@@ -1,359 +1,310 @@
-# espo-dev
+# EspoCRM Dev: Custom Metadata & Layouts
 
-**EspoCRM Metadata Repository - DEV Environment**
-
-Version-controlled metadata for EspoCRM entities, fields, and configurations.
-
----
-
-## Repository Purpose
-
-This repository contains the **metadata JSON files** that define EspoCRM entities, fields, and business logic. By managing these files in Git, we can:
-
-- ✅ **Version control** entity definitions
-- ✅ **Edit JSON directly** instead of using Entity Manager GUI
-- ✅ **Optimize MySQL field types** (dbType, len overrides)
-- ✅ **Track changes** over time
-- ✅ **Rollback** to previous versions if needed
-- ✅ **Collaborate** with detailed commit history
+**Environment:** Development  
+**Domain:** `https://dev.permtrak.com/EspoCRM/`  
+**Purpose:** Development environment for EspoCRM custom entities and metadata  
+**Database:** `permtrak2_dev`
 
 ---
 
-## Current Status
+## 🌐 **Repository Ecosystem**
 
-**Environment:** `dev.permtrak.com`  
-**EspoCRM Version:** 9.2.4  
-**PHP Version:** 8.2.29  
-**Last Updated:** 2025-11-03
+This repository is part of a 10-repository deployment pipeline for managing EspoCRM and WordPress Reports across multiple environments.
 
-**Contents:**
-- **34 Entity Definitions** (entityDefs/)
-- **25 Scope Configurations** (scopes/)
-- **25 Client Definitions** (clientDefs/)
-- **25 Record Definitions** (recordDefs/)
+### **EspoCRM Repositories (5 Total)**
 
-**Total:** 110 files, 9,574 lines of JSON
+| Repo | Environment | Domain | Purpose |
+|------|-------------|---------|---------|
+| **[espo-ctl](https://github.com/k4rlski/espo-ctl)** | Control | N/A | Automation scripts, shared config, credentials, **ALL DOCUMENTATION** |
+| **[espo-sandbox](https://github.com/k4rlski/espo-sandbox)** | Sandbox | `sandbox.permtrak.com/EspoCRM` | Sandbox/testing CRM (source) |
+| **[espo-dev](https://github.com/k4rlski/espo-dev)** ⭐ | Development | `dev.permtrak.com/EspoCRM` | **THIS REPO** - Development CRM |
+| **[espo-staging](https://github.com/k4rlski/espo-staging)** | Staging | `staging.permtrak.com/EspoCRM` | Pre-production CRM |
+| **[espo-crm](https://github.com/k4rlski/espo-crm)** | Production | `crm.permtrak.com/EspoCRM` | Production CRM |
+
+### **WordPress Reports Repositories (5 Total)**
+
+| Repo | Environment | Domain | Purpose |
+|------|-------------|---------|---------|
+| **[reports-ctl](https://github.com/k4rlski/reports-ctl)** | Control | N/A | Automation scripts, shared config, deployment tools |
+| **[reports-sb](https://github.com/k4rlski/reports-sb)** | Sandbox | `rpx-sb.permtrak.com` | Sandbox WordPress environment |
+| **[reports-dev](https://github.com/k4rlski/reports-dev)** | Development | `rpx-dev.permtrak.com` | Development WordPress environment |
+| **[reports-st](https://github.com/k4rlski/reports-st)** | Staging | `rpx-st.permtrak.com` | Pre-production WordPress |
+| **[reports-crm](https://github.com/k4rlski/reports-crm)** | Production | `reports.permtrak.com` | Production WordPress |
 
 ---
 
-## Directory Structure
+## 📂 **What's in This Repo**
+
+This repository contains EspoCRM custom metadata, entity definitions, and layouts for the **Development** environment:
+
+### **Directory Structure**
+```
+espo-dev/
+├── README.md                    # This file
+├── clientDefs/                  # Client-side entity definitions
+│   ├── TESTPERM.json           # PERM case client config
+│   ├── PWD.json                # Prevailing Wage Determination config
+│   ├── News.json               # Main newspaper entity config
+│   ├── SWA.json                # State Workforce Agency config
+│   └── ... (30+ entity definitions)
+├── entityDefs/                  # Server-side entity definitions
+│   ├── TESTPERM.json           # PERM case field definitions
+│   ├── PWD.json                # PWD field definitions (144 fields)
+│   ├── News.json               # Main newspaper field definitions
+│   └── ... (30+ entity definitions)
+├── recordDefs/                  # Record-level business logic
+│   └── ... (entity-specific record definitions)
+├── scopes/                      # Entity scope configurations
+│   ├── TESTPERM.json           # PERM case scope
+│   ├── PWD.json                # PWD scope
+│   └── ... (30+ scope definitions)
+└── layouts/                     # UI layout configurations
+    ├── TESTPERM/               # PERM case layouts
+    │   ├── detail.json         # Detail view layout
+    │   ├── list.json           # List view layout
+    │   └── ... (filters, search, etc.)
+    └── ... (layouts for all entities)
+```
+
+---
+
+## 🚀 **Deployment Pipeline**
+
+This repo is part of an automated deployment pipeline:
 
 ```
-metadata/
-├── entityDefs/          # Entity field definitions & MySQL schema
-│   ├── SWA.json        # PERM Case entity
-│   ├── TESTPERM.json   # Labor Certification entity
-│   ├── PWD.json        # Prevailing Wage entity
-│   └── ...             # 31 more entities
-│
-├── scopes/             # Entity-level settings (tab visibility, ACL)
-├── clientDefs/         # Frontend behavior (forms, modals)
-├── recordDefs/         # Business logic (validation, hooks)
-└── .gitignore          # Excludes temp files
+Sandbox (espo-sandbox)
+    ↓ [Clone + Config Update]
+Development (espo-dev) ⭐ YOU ARE HERE
+    ↓ [Clone + Config Update]
+Staging (espo-staging)
+    ↓ [Clone + Config Update]
+Production (espo-crm)
 ```
 
----
-
-## Key Entities
-
-### PERM Labor Certification System
-- **SWA** - State Workforce Agency cases
-- **TESTPERM** - PERM labor certification cases
-- **PWD** - Prevailing Wage Determinations
-- **Radio** - Radio stations for recruitment ads
-- **Local** - Locals/unions
-- **News** - Newspapers for print ads
-- **CCommunications** - Communication tracking
-
-### Custom Business Entities
-- **Accounting** - Financial tracking
-- **CTransactions** - Transaction records
-- **CStripetrx** - Stripe payment transactions
-- **Expenses** - Expense tracking
-- **Tools** - Tools/utilities
-
-### Standard EspoCRM Entities
-- **Account, Contact, Lead** - CRM basics
-- **Call, Meeting, Task, Email** - Activities
-- **Document** - Document management
+**Deployment Tool:** `espo-ctl/scripts/espo-clone.py`
 
 ---
 
-## Workflow
+## 📚 **Key Documentation**
 
-### Making Changes
+### **⚠️ ALL DOCUMENTATION IS IN `espo-ctl` REPO**
 
-**1. Edit Locally:**
+All comprehensive documentation is centralized in the **[espo-ctl](https://github.com/k4rlski/espo-ctl)** repository:
+
+- **[DEPLOYMENT-PIPELINE-PLAN.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/DEPLOYMENT-PIPELINE-PLAN.md)** - Overall deployment strategy (541 lines)
+- **[DEPLOYMENT-STATUS-2025-11-20.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/DEPLOYMENT-STATUS-2025-11-20.md)** - Initial dev deployment summary
+- **[DEPLOYMENT-SUCCESS-2025-11-20-CLEAN-BASELINE.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/DEPLOYMENT-SUCCESS-2025-11-20-CLEAN-BASELINE.md)** - Clean baseline establishment (117 files eliminated)
+- **[CRITICAL-FIX-ENVIRONMENT-LINKAGE.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/CRITICAL-FIX-ENVIRONMENT-LINKAGE.md)** - Environment linkage fixes for WordPress & EspoCRM
+- **[WORDPRESS-PATHS-AND-CREDENTIALS.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/WORDPRESS-PATHS-AND-CREDENTIALS.md)** - WordPress file structure & credentials
+- **[REPOSITORY-STRUCTURE.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/REPOSITORY-STRUCTURE.md)** - Complete 10-repo ecosystem map
+- **[ROOT-CAUSE-ANALYSIS-HARDCODED-LINKS.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/ROOT-CAUSE-ANALYSIS-HARDCODED-LINKS.md)** - Hard-coded link contamination analysis
+- **[HARD-CODED-LINKS-SCANNER.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/HARD-CODED-LINKS-SCANNER.md)** - Scanner tool documentation
+- **[DEPLOYMENT-STATUS-2025-11-20-FINAL.md](https://github.com/k4rlski/espo-ctl/blob/main/docs/DEPLOYMENT-STATUS-2025-11-20-FINAL.md)** - Final comprehensive deployment summary
+
+**Total Documentation:** 3,500+ lines across 9 comprehensive documents
+
+---
+
+## 🏷️ **Golden Images (Rollback Points)**
+
+This repository has tagged "Golden Images" representing known-good, stable states:
+
+| Tag | Date | Description | Status |
+|-----|------|-------------|--------|
+| `golden-image-2025-11-20-dev-clone` | 2025-11-20 | Initial dev clone from sandbox | ⭐ LATEST |
+
+**To rollback to a Golden Image:**
 ```bash
-cd /path/to/espo-dev
-# Edit JSON files (e.g., entityDefs/SWA.json)
+git checkout golden-image-2025-11-20-dev-clone
 ```
 
-**2. Commit Changes:**
+---
+
+## ✅ **Current Status**
+
+### **Environment Verification**
+- ✅ **Custom metadata cloned from sandbox**
+- ✅ **Database config verified** (`permtrak2_dev`)
+- ✅ **EspoCRM cache cleared and rebuilt**
+- ✅ **User confirmed:** "Espo dev seems to be working fine"
+
+### **Database Configuration**
+- ✅ `config-internal.php` points to `permtrak2_dev`
+- ✅ Database credentials verified
+- ✅ No cross-environment contamination
+
+### **Custom Entities (30+)**
+- `TESTPERM` - PERM labor certification cases
+- `PWD` - Prevailing Wage Determinations (144 fields)
+- `News` - Main newspaper media
+- `Local` - Local newspaper media
+- `Radio` - Radio station media
+- `SWA` - State Workforce Agency records
+- `Online` - Online media
+- `CAcctCodes` - Account codes
+- `Accounting` - Accounting records
+- `CTransactions` - Communications transactions
+- `CCommunications` - Communications records
+- `CAutoPrint` - Auto-print records
+- `CDomainmgt` - Domain management
+- `CVendorMgt` - Vendor management
+- `CBizExp` - Business expenses
+- `CZipsToMedia` - Zip to media mapping
+- `ZipToMedia` - Individual zip-media links
+- ... and 13+ more custom entities
+
+---
+
+## 🔧 **Local Development**
+
+### **Server Paths**
+- **EspoCRM Root:** `/home/permtrak2/dev.permtrak.com/EspoCRM/`
+- **Custom Metadata:** `/home/permtrak2/dev.permtrak.com/EspoCRM/custom/Espo/Custom/Resources/metadata/`
+- **Config:** `/home/permtrak2/dev.permtrak.com/EspoCRM/data/config-internal.php`
+
+### **Syncing Metadata to Local Repo**
 ```bash
-git add entityDefs/SWA.json
-git commit -m "Optimize SWA.status field: VARCHAR(255) → VARCHAR(20)"
+cd "/home/falken/DEVOPS Dropbox/DEVOPS-KARL/CORE-v4/2-ESPOCRM/ESPO-AUTOMATION/espo-dev"
+
+# Sync all metadata
+scp -r permtrak2@permtrak.com:/home/permtrak2/dev.permtrak.com/EspoCRM/custom/Espo/Custom/Resources/metadata/* .
+
+# Commit changes
+git add -A
+git commit -m "Your commit message"
 git push origin main
 ```
 
-**3. Deploy to Server:**
+### **Deploying Metadata from Local to Server**
 ```bash
-# Copy to server
-scp -r . permtrak2@permtrak.com:/home/permtrak2/dev.permtrak.com/EspoCRM/custom/Espo/Custom/Resources/metadata/
+# Deploy metadata
+scp -r clientDefs entityDefs recordDefs scopes layouts permtrak2@permtrak.com:/home/permtrak2/dev.permtrak.com/EspoCRM/custom/Espo/Custom/Resources/metadata/
 
-# SSH to server and rebuild
-ssh permtrak2@permtrak.com
-cd /home/permtrak2/dev.permtrak.com/EspoCRM
-php command.php clear-cache
-php rebuild.php
+# Rebuild EspoCRM
+ssh permtrak2@permtrak.com "cd /home/permtrak2/dev.permtrak.com/EspoCRM && php command.php clear-cache && php rebuild.php"
 ```
 
-**4. Verify:**
+---
+
+## 🔐 **Database & Credentials**
+
+- **Database Name:** `permtrak2_dev`
+- **Database User:** `permtrak2_dev`
+- **Credentials:** Stored in `espo-ctl/credentials/dev/espocrm-db.txt` (git-ignored)
+- **Database Connection:** Configured in `data/config-internal.php`
+
+---
+
+## 🎯 **Key Custom Entities**
+
+### **PERM Case Management (`TESTPERM`)**
+The primary entity for managing PERM labor certification cases. Includes:
+- Case tracking (case number, status, dates)
+- Employer information
+- Job details (title, duties, requirements)
+- Attorney/agent information
+- Advertising tracking (newspapers, radio, SWA, online)
+- Financial tracking (costs, payments, invoices)
+- 200+ fields total
+
+### **Prevailing Wage Determination (`PWD`)**
+Manages PWD requests and details. Includes:
+- 144 fields covering all ETA 9141 form sections
+- Job information (title, duties, requirements)
+- Employer details
+- Prevailing wage data
+- BLS area, SOC code, wage levels
+- Integration with Quote Builder via `pwd-extraction-view.php`
+
+### **Media Entities**
+- **News** - Main newspapers (LA Times, NY Times, etc.)
+- **Local** - Local newspapers
+- **Radio** - Radio stations
+- **Online** - Online job boards
+
+### **Accounting & Communications**
+- **Accounting** - Financial records
+- **CTransactions** - Transaction tracking
+- **CCommunications** - Communication logs
+- **CAcctCodes** - Account code management
+
+### **Vendor & Domain Management**
+- **CVendorMgt** - Vendor relationships
+- **CDomainmgt** - Domain registration & renewal
+
+---
+
+## 📈 **History & Changelog**
+
+### **2025-11-20: Initial Dev Clone**
+- ✅ Cloned from sandbox to dev using `espo-clone.py`
+- ✅ Updated `config-internal.php` to use `permtrak2_dev` database
+- ✅ Cleared cache and rebuilt metadata
+- ✅ Verified functionality
+- ✅ Golden Image created: `golden-image-2025-11-20-dev-clone`
+
+---
+
+## 🚀 **Next Steps**
+
+1. ✅ Dev environment is clean and ready
+2. ⏳ Deploy to staging (`espo-staging`)
+3. ⏳ Test staging environment
+4. ⏳ Deploy to production (`espo-crm`)
+
+---
+
+## 🤝 **Contributing**
+
+All changes should follow this workflow:
+
+1. **Make changes in sandbox** (`sandbox.permtrak.com/EspoCRM`)
+2. **Use Entity Manager** in EspoCRM UI (NEVER direct SQL ALTER TABLE)
+3. **Export metadata** from sandbox
+4. **Commit to `espo-sandbox` repo**
+5. **Clone to dev** using `espo-clone.py`
+6. **Test in dev** (`dev.permtrak.com/EspoCRM`)
+7. **Commit to this repo** (`espo-dev`)
+8. **Promote upstream** (dev → staging → production)
+
+**⚠️ CRITICAL:** Never add database fields via SQL ALTER TABLE. Always use EspoCRM Entity Manager interface!
+
+---
+
+## 🔧 **EspoCRM Maintenance Commands**
+
+### **Clear Cache**
 ```bash
-# Check MySQL schema
-mysql -u user -p database -e "SHOW CREATE TABLE entity_name;"
-
-# Test in web interface
-# https://dev.permtrak.com/EspoCRM/
+ssh permtrak2@permtrak.com "cd /home/permtrak2/dev.permtrak.com/EspoCRM && php command.php clear-cache"
 ```
 
----
-
-## MySQL Optimization
-
-### Current State
-All entities use **EspoCRM defaults** (often wasteful):
-- VARCHAR fields: `VARCHAR(255)` by default
-- Text fields: `TEXT` (65KB)
-- Integer fields: `INT` (4 bytes)
-- Float fields: `DOUBLE` (8 bytes)
-
-### Optimization Strategy
-
-**Add `dbType` and `len` to field definitions:**
-
-**Before:**
-```json
-{
-  "status": {
-    "type": "enum",
-    "options": ["New", "Active", "Complete"]
-  }
-}
-```
-
-**After:**
-```json
-{
-  "status": {
-    "type": "enum",
-    "options": ["New", "Active", "Complete"],
-    "dbType": "varchar",
-    "len": 20
-  }
-}
-```
-
-**Result:**
-- MySQL: `VARCHAR(255)` → `VARCHAR(20)`
-- Savings: 235 bytes per record
-- Index size: Significantly reduced
-
-### Common Optimizations
-
-| EspoCRM Type | Default MySQL | Optimized | Savings |
-|--------------|---------------|-----------|---------|
-| varchar | VARCHAR(255) | VARCHAR(20-100) | 155-235 bytes |
-| text | TEXT (65KB) | VARCHAR(500-2000) | ~65KB |
-| int | INT (4 bytes) | TINYINT (1 byte) | 3 bytes |
-| float | DOUBLE (8 bytes) | DECIMAL(10,2) | 5 bytes |
-
-**For detailed guide, see:** [EspoCRM Metadata MySQL Optimization Guide](https://github.com/k4rlski/espo-ctl/blob/main/markdown/EspoCRM_Metadata_MySQL_Optimization_Guide.md)
-
----
-
-## Important Notes
-
-### ⚠️ Always Test First
-1. Make changes in DEV (this repo)
-2. Deploy to dev.permtrak.com
-3. Test thoroughly
-4. Deploy to PROD only after validation
-
-### 🔄 After JSON Changes
-**Always rebuild EspoCRM:**
+### **Rebuild Metadata**
 ```bash
-cd /home/permtrak2/dev.permtrak.com/EspoCRM
-php command.php clear-cache
-php rebuild.php
+ssh permtrak2@permtrak.com "cd /home/permtrak2/dev.permtrak.com/EspoCRM && php rebuild.php"
 ```
 
-### 🚫 Never Edit These Files Directly on Server
-- Edit locally
-- Commit to Git
-- Deploy to server
-- **Git is the source of truth**
-
-### ⚠️ Stale Browser Cache
-After metadata changes, clear browser cache:
-- Hard refresh: `Ctrl+F5` (Windows/Linux) or `Cmd+Shift+R` (Mac)
-- Or: Clear cache via browser settings
-
----
-
-## Related Tools
-
-### [espo-ctl](https://github.com/k4rlski/espo-ctl)
-Automation toolkit for EspoCRM management:
-- **espo-clone-local.py** - Clone PROD → DEV
-- **db-update.py** - Sync database only
-- **espo-smart-update.py** - Update EspoCRM versions
-
-### [espo-prod](https://github.com/k4rlski/espo-prod)
-Production metadata repository (deploy after DEV testing)
-
----
-
-## Field Type Reference
-
-### Supported dbType Values
-- `varchar` - Variable length string (requires `len`)
-- `text` - Large text (no len needed)
-- `mediumtext` - Larger text (16MB)
-- `longtext` - Huge text (4GB)
-- `tinyint` - Small integer (-128 to 127, or 0-255 unsigned)
-- `smallint` - Medium integer (-32K to 32K)
-- `int` - Standard integer
-- `bigint` - Large integer
-- `decimal(M,D)` - Fixed-point decimal (e.g., `decimal(10,2)`)
-- `float` - Floating point (4 bytes)
-- `double` - Double precision (8 bytes)
-- `date` - Date only
-- `datetime` - Date and time
-- `timestamp` - Auto-updating timestamp
-
----
-
-## Troubleshooting
-
-### Changes Not Appearing
+### **Hard Rebuild (if needed)**
 ```bash
-# Clear ALL caches
-cd /home/permtrak2/dev.permtrak.com/EspoCRM
-rm -rf data/cache/*
-php command.php clear-cache
-php rebuild.php
-
-# Clear browser cache
-# Hard refresh: Ctrl+F5
-```
-
-### Rebuild Fails
-```bash
-# Check logs
-tail -100 data/logs/espo-$(date +%Y-%m-%d).log
-
-# Common issues:
-# - Invalid JSON syntax
-# - Missing required fields
-# - MySQL row size exceeded (see optimization guide)
-```
-
-### Metadata Reverted
-- **Cause:** Stale browser cache in Entity Manager
-- **Fix:** Always edit JSON files, never use Entity Manager GUI
-- **Prevention:** Document changes in Git commits
-
----
-
-## Backup & Recovery
-
-### Rollback to Previous Version
-```bash
-# View history
-git log --oneline
-
-# Revert to specific commit
-git checkout abc1234 -- entityDefs/SWA.json
-git commit -m "Revert SWA.json to known good version"
-git push origin main
-
-# Deploy to server
-scp entityDefs/SWA.json permtrak2@permtrak.com:/path/to/metadata/entityDefs/
-# Then rebuild
-```
-
-### Emergency Recovery
-```bash
-# Server has backups at:
-/home/permtrak2/backups/espo-updates/
-
-# Restore from backup
-cd /home/permtrak2/dev.permtrak.com/EspoCRM
-rm -rf custom/Espo/Custom/Resources/metadata/*
-tar -xzf /home/permtrak2/backups/espo-updates/backup-file.tar.gz
-php rebuild.php
+ssh permtrak2@permtrak.com "cd /home/permtrak2/dev.permtrak.com/EspoCRM && php rebuild.php --hard"
 ```
 
 ---
 
-## Best Practices
+## 📞 **Support & Contact**
 
-1. **One entity per commit** - Makes reverts easier
-2. **Descriptive commit messages** - Explain WHY, not just WHAT
-3. **Test before deploying** - Use dev.permtrak.com first
-4. **Document optimizations** - Note savings and rationale
-5. **Backup before major changes** - Use espo-clone-local.py
-6. **Never skip rebuild** - Required after metadata changes
-7. **Monitor MySQL logs** - Check for schema errors
-8. **Use branches for experiments** - Test risky changes safely
+- **Primary Documentation:** [espo-ctl/docs](https://github.com/k4rlski/espo-ctl/tree/main/docs) (3,500+ lines)
+- **Deployment Tools:** [espo-ctl/scripts](https://github.com/k4rlski/espo-ctl/tree/main/scripts)
+- **Issues:** Use GitHub Issues in respective repos
 
 ---
 
-## Metrics
+## 📄 **License**
 
-### Storage Optimization Potential
-Current state: **EspoCRM defaults (unoptimized)**
-
-**Example (SWA entity):**
-- Current: ~65KB per record (with defaults)
-- Optimized: ~1-2KB per record
-- With 10,000 records: **650MB → 20MB** (97% reduction)
-
-**Next Steps:**
-1. Analyze current field usage
-2. Identify optimization opportunities
-3. Apply dbType/len overrides
-4. Test and measure actual savings
+Private repository - All rights reserved.
 
 ---
 
-## Contributing
-
-This repository is for EspoCRM metadata management.
-
-**Workflow:**
-1. Create feature branch: `git checkout -b optimize/swa-entity`
-2. Make changes
-3. Commit with detailed message
-4. Push and test on dev.permtrak.com
-5. Merge to main after validation
-
----
-
-## License
-
-Proprietary - Internal use only
-
----
-
-## Contact
-
-**Repository:** https://github.com/k4rlski/espo-dev  
-**Related:** https://github.com/k4rlski/espo-ctl  
-**Environment:** dev.permtrak.com
-
-**Last Updated:** 2025-11-03  
-**EspoCRM Version:** 9.2.4  
-**Status:** ✅ Operational
-
+*Last Updated: 2025-11-20*  
+*Environment: Development*  
+*Status: ✅ Clean, Verified, Production-Ready*
