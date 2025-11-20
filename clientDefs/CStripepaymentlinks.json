@@ -4,5 +4,11 @@
         "onlyMy"
     ],
     "color": "#2cff05",
-    "iconClass": "fas fa-link"
+    "iconClass": "fas fa-link",
+    "relationshipPanels": {
+        "permcase": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        }
+    }
 }

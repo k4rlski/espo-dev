@@ -4,5 +4,11 @@
         "onlyMy"
     ],
     "color": "#39ff14",
-    "iconClass": "fas fa-money-check"
+    "iconClass": "fas fa-money-check",
+    "relationshipPanels": {
+        "perm": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        }
+    }
 }

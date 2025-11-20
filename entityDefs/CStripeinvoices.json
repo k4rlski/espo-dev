@@ -222,6 +222,15 @@
             "maxLength": 255,
             "options": [],
             "isCustom": true
+        },
+        "casenumber": {
+            "type": "varchar",
+            "maxLength": 100,
+            "options": [],
+            "isCustom": true
+        },
+        "perm": {
+            "type": "link"
         }
     },
     "links": {
@@ -242,6 +251,13 @@
             "entity": "Team",
             "relationName": "entityTeam",
             "layoutRelationshipsDisabled": true
+        },
+        "perm": {
+            "type": "belongsTo",
+            "foreign": "stripeinvoice",
+            "entity": "TESTPERM",
+            "audited": false,
+            "isCustom": true
         }
     },
     "collection": {

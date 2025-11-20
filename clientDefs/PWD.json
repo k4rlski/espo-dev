@@ -4,5 +4,11 @@
         "onlyMy"
     ],
     "color": "#ff4a4a",
-    "iconClass": "fas fa-gavel"
+    "iconClass": "fas fa-gavel",
+    "relationshipPanels": {
+        "perm": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        }
+    }
 }

@@ -25,6 +25,22 @@
         "communications": {
             "layout": null,
             "selectPrimaryFilterName": null
+        },
+        "stripetrx": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        },
+        "stripeinvoice": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        },
+        "stripepaymentlinkses": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        },
+        "pwd": {
+            "layout": null,
+            "selectPrimaryFilterName": null
         }
     }
 }

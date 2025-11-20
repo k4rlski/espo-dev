@@ -9,7 +9,8 @@
             "pattern": "$noBadCharacters"
         },
         "description": {
-            "type": "text"
+            "type": "text",
+            "rows": 1
         },
         "createdAt": {
             "type": "datetime",
@@ -102,91 +103,155 @@
         },
         "visaclass": {
             "type": "enum",
-            "options": ["", "H-1B", "H-1B1", "E-3", "PERM", "Other"],
+            "options": [
+                "",
+                "H-1B",
+                "H-1B1",
+                "E-3",
+                "PERM",
+                "Other"
+            ],
             "maxLength": 10,
             "default": "",
             "isCustom": true
         },
         "typeofrep": {
             "type": "enum",
-            "options": ["", "Attorney", "Agent", "Self", "None"],
+            "options": [
+                "",
+                "Attorney",
+                "Agent",
+                "Self",
+                "None"
+            ],
             "maxLength": 10,
             "default": "",
             "isCustom": true
         },
         "statacwiachanged": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
         },
         "profsportsleague": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
         },
         "wagesourcerequested": {
             "type": "enum",
-            "options": ["", "OES", "CBA", "Other", "Employer Survey"],
+            "options": [
+                "",
+                "OES",
+                "CBA",
+                "Other",
+                "Employer Survey"
+            ],
             "maxLength": 20,
             "default": "",
             "isCustom": true
         },
         "supervise_other_emp": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
         },
         "requirededucationlevel": {
             "type": "enum",
-            "options": ["", "None", "High School", "Associate", "Bachelor", "Master", "Doctorate", "Professional"],
+            "options": [
+                "",
+                "None",
+                "High School",
+                "Associate",
+                "Bachelor",
+                "Master",
+                "Doctorate",
+                "Professional"
+            ],
             "maxLength": 15,
             "default": "",
             "isCustom": true
         },
         "secondeducation": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
         },
         "requiredtraining": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
         },
         "requiredexperience": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
         },
         "alttraining": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
         },
         "altexperience": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
         },
         "travelrequired": {
             "type": "enum",
-            "options": ["", "Yes", "No"],
+            "options": [
+                "",
+                "Yes",
+                "No"
+            ],
             "maxLength": 5,
             "default": "",
             "isCustom": true
@@ -213,18 +278,19 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1,
+            "maxLength": 50
         },
         "employerpocaddress1": {
             "type": "text",
             "rowsMin": 2,
             "cutHeight": 200,
-            "rows": 8,
+            "rows": 1,
             "isCustom": true
         },
         "employerpocaddress2": {
             "type": "text",
-            "rows": 2,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 40,
             "isCustom": true
@@ -251,7 +317,7 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "employerpocprovince": {
             "type": "varchar",
@@ -287,18 +353,18 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "employeraddress1": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
         },
         "employeraddress2": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 80,
             "isCustom": true
@@ -377,14 +443,14 @@
         },
         "agentattorneyaddress1": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
         },
         "agentattorneyaddress2": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
@@ -393,7 +459,7 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "agentattorneystate": {
             "type": "varchar",
@@ -411,13 +477,13 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "agentattorneyprovince": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "agentattorneyphone": {
             "type": "varchar",
@@ -435,43 +501,43 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "lawfirmnamebusinessname": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "acwiainsthighereducation": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "acwiaaffiliatednonprofit": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "acwiaresearchorg": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "cba": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "surveyname": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "datesurveypublication": {
             "notNull": false,
@@ -482,7 +548,7 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "jobduties": {
             "type": "text",
@@ -502,19 +568,19 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "requirededucationmajor": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "secondeducationmajor": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "requiredtrainingmonths": {
             "type": "text",
@@ -542,13 +608,13 @@
                 "NA": null
             },
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "requiredtrainingname": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "requiredexperiencemonths": {
             "type": "text",
@@ -584,7 +650,7 @@
                 "NA": null
             },
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "requiredoccupation": {
             "type": "text",
@@ -600,35 +666,35 @@
                 "NA": null
             },
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "specreqlicensecert": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "specreqforeignlang": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "specreqresfellow": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "specreqother": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "alternativerequirements": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
@@ -637,43 +703,43 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "altotherdegree": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "alteducationmajor": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "alttrainingmonths": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "alttrainingname": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "altexperiencemonths": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "altlicensecert": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "altforeignlanguage": {
             "type": "varchar",
@@ -686,13 +752,13 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "altotherreq": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "suggestedsoccode": {
             "type": "varchar",
@@ -704,31 +770,31 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "supervisorjobtitle": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "traveldetails": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
         },
         "primaryworksiteaddress1": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
         },
         "primaryworksiteaddress2": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
@@ -767,7 +833,7 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "onetcode": {
             "type": "varchar",
@@ -844,7 +910,7 @@
         },
         "wagedetnotes": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
@@ -871,18 +937,18 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "specialskillsrequirements": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
         },
         "altspecialskills": {
             "type": "text",
-            "rows": 8,
+            "rows": 1,
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
@@ -901,19 +967,19 @@
                 "NA": null
             },
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "pwdwagesource": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "pwdsurveyname": {
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "altpwdwagerate": {
             "type": "varchar",
@@ -949,7 +1015,7 @@
             "type": "text",
             "options": [],
             "isCustom": true,
-            "rows": 4
+            "rows": 1
         },
         "h2bhighestpwd": {
             "type": "varchar",
@@ -1015,6 +1081,13 @@
             "type": "hasMany",
             "foreign": "pwd",
             "entity": "ZipToMedia",
+            "audited": false,
+            "isCustom": true
+        },
+        "perm": {
+            "type": "hasMany",
+            "foreign": "pwd",
+            "entity": "TESTPERM",
             "audited": false,
             "isCustom": true
         }
